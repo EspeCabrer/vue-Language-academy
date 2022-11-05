@@ -3,6 +3,7 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import HelloWorld from './components/HelloWorld.vue';
 import Form from './components/Form.vue';
+import LoginForm from './components/LoginForm.vue';
 </script>
 
 <template>
@@ -17,6 +18,7 @@ import Form from './components/Form.vue';
   </div>
   <HelloWorld msg="Vite + Vue - Hola" />
   <Form />
+  <LoginForm />
 </template>
 
 <style scoped>
