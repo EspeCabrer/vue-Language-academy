@@ -16,15 +16,15 @@
 
 
 <template>
-    <h1>Lista de profes</h1>
+    <h1>Lista de estudiantes</h1>
       <div>
-        <p>
+         <p>
             {{result}}
-        </p>
+        </p> 
 
         <button 
             @click="showPost"
             >Submit
-        </button>
+        </button> 
         </div>
 </template>

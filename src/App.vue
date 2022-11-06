@@ -3,30 +3,21 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import HelloWorld from './components/HelloWorld.vue';
 import Form from './components/Form.vue';
-import TeacherList from './components/TeacherList.vue';
+import TeacherList from './views/TeacherList.vue';
 import NavBar from './components/NavBar.vue';
 import SignIn from './views/SignIn.vue';
 
 </script>
 
 <template>
-
-  <router-link to="/">Login</router-link>
-  <router-link to="/login">Form</router-link>
-
-  <a href="/">Logiiin</a>
-
-  <router-view/>
-
-
-  <!-- <NavBar/>
-  <SignIn/> 
-  <router-link to="/">Go to Home</router-link>
-  <Form />
-  <LoginForm />
+  <NavBar/>
+  
+<div class="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
   <Suspense>
-    <TeacherList /> 
-  </Suspense> -->
+    <router-view/>
+  </Suspense>
+</div>
+
 </template>
 
 <style scoped>

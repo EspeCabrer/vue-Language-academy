@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory} from 'vue-router';
 import Login from '../views/LogIn.vue'
 import Signin from '../views/SignIn.vue'
+import Teachers from '../views/teacherList.vue'
 
 const routes = [
     {
@@ -12,6 +13,11 @@ const routes = [
         path: '/signin',
         name: "signin",
         component: Signin
+    },
+    {
+        path: '/teachers',
+        name: "teachers",
+        component: Teachers
     }
 
 ]
@@ -19,6 +25,7 @@ const routes = [
 export const router = createRouter({
     history: createWebHistory(),
     routes,
+    linkActiveClass: 'active'
 });
 
 export default router;
