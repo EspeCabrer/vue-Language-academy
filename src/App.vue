@@ -5,19 +5,28 @@ import HelloWorld from './components/HelloWorld.vue';
 import Form from './components/Form.vue';
 import TeacherList from './components/TeacherList.vue';
 import NavBar from './components/NavBar.vue';
-import SignIn from './components/SignIn.vue';
+import SignIn from './views/SignIn.vue';
 
 </script>
 
 <template>
-  <NavBar/>
+
+  <router-link to="/">Login</router-link>
+  <router-link to="/login">Form</router-link>
+
+  <a href="/">Logiiin</a>
+
+  <router-view/>
+
+
+  <!-- <NavBar/>
   <SignIn/> 
   <router-link to="/">Go to Home</router-link>
   <Form />
   <LoginForm />
   <Suspense>
     <TeacherList /> 
-  </Suspense>
+  </Suspense> -->
 </template>
 
 <style scoped>

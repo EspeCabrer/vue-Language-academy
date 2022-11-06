@@ -24,8 +24,6 @@ const handleSubmit = async () => {
         })
         .catch(error => console.error("NOOOO", error))  
 
-        console.log(err.value)
-
 }
 
 </script>
