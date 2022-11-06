@@ -1,5 +1,6 @@
 <script setup>
     import { ref } from 'vue';
+    import Cookies from 'js-cookie'
     let students = ref()
     let firstNameNewStudent = ref('');
     let lastNameNewStudent = ref('');
@@ -14,7 +15,13 @@
     const columns = ['Index','Id','First Name','Second Name','Actions '];
 
     const getStudents = async () => {
-        await fetch(`http://localhost:3000/student`)
+
+         const requestOptions = {
+            method: "GET",
+            headers: { 'Authorization': 'Bearer ' + Cookies.get('jwt')}
+        };
+
+        await fetch(`http://localhost:3000/student`, requestOptions)
             .then((r) => r.json())
             .then(data => {
                 students.value = data
@@ -27,7 +34,7 @@
         const URL = `http://localhost:3000/student`;
         const requestOptions = {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: { 'Authorization': 'Bearer ' + Cookies.get('jwt')},
             body: JSON.stringify({
                 firstName: firstNameNewStudent.value,
                 lastName: lastNameNewStudent.value
@@ -46,7 +53,7 @@
         const URL = `http://localhost:3000/student`;
         const requestOptions = {
             method: "PUT",
-            headers: { "Content-Type": "application/json" },
+             headers: { 'Authorization': 'Bearer ' + Cookies.get('jwt')},
             body: JSON.stringify({
                 firstName: editFirstName.value,
                 lastName: editLastName.value
@@ -65,7 +72,7 @@ const deleteStudent = async (id) => {
      const URL = `http://localhost:3000/student`;
         const requestOptions = {
             method: "DELETE",
-            headers: { "Content-Type": "application/json" }
+             headers: { 'Authorization': 'Bearer ' + Cookies.get('jwt')}
         };
 
             await fetch(`${URL}/${id}`, requestOptions)
