@@ -102,7 +102,7 @@ const deleteStudent = async (id) => {
 <template>
 
 <div class="min-h-full w-full items-center justify-center py-10 px-4 sm:px-6 lg:px-8 bg-stone-100 rounded-md">
- <h1 class="text-blue-600 text-2xl">Student list</h1>
+ <h1 class="text-blue-600 text-2xl pb-3">Student list</h1>
     <table class="table-auto border-collapse border border-slate-400 mx-auto">
       <thead>
         <tr>

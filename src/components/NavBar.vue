@@ -76,7 +76,8 @@ const navigation = [
 
 <style>
 .active {
-  background-color: rgb(24, 47, 176) !important;
+  background-color: rgb(226 232 240) !important;
+  color: rgb(71 85 105) !important;
 }
 
 
