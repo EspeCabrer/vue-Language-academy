@@ -1,54 +1,54 @@
 <script setup>
 import { ref } from 'vue';
-let students
+let students = ref()
 let firstNameNewStudent = ref('');
-let lastNameNewStudent= ref('');
+let lastNameNewStudent = ref('');
 
-    const post = await fetch(`http://localhost:3000/student`)
+const getStudents = async () => {
+    await fetch(`http://localhost:3000/student`)
         .then((r) => r.json())
         .then(data => {
-            students = data
-            console.log({data})
+            students.value = data
         })
         .catch((e) => console.log('error', e));
+}
 
-    const showPost = () => {
-        console.log('post',students)
+const addStudent = async () => {
+
+    console.log('added')
+
+    const URL = `http://localhost:3000/student`;
+    const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            firstName: firstNameNewStudent.value,
+            lastName: lastNameNewStudent.value
+        })
     };
 
-const add = () => {
-        console.log(firstNameNewStudent.value, lastNameNewStudent.value)
-    }
+        await fetch(URL, requestOptions)
+        .then((res) => res.json())
+            .then(data => {
+            console.log({data})
+            getStudents();
+        })
+        .catch((e) => console.log(e));
+}
+
+getStudents();
+
+
 
 const columns = ['Index','Id','First Name','Second Name','Actions '];
 </script>
 
 
 <template>
-    <div class="min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-stone-100">
-        <h1 class="text-blue-600 text-2xl">Student list</h1>
-          <div>
-             <p>
-                <div id=”app”>
-                    <ul>
-                        <li v-for="student in students">
-                            <b>{{ student.firstName }}</b> By <i>{{ student.lastName }}</i> 
-                        </li>
-                    </ul>
-                </div>
-            </p> 
 
-
-
-            <!-- <button 
-                @click="showPost"
-                >Submit
-            </button>  -->
-         </div>
-    </div>
-
-
-    <table v-show="students.length">
+<div class="min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-stone-100">
+ <h1 class="text-blue-600 text-2xl">Student list</h1>
+    <table>
       <thead>
         <tr>
           <th v-for="column in columns">
@@ -88,7 +88,7 @@ const columns = ['Index','Id','First Name','Second Name','Actions '];
             </div>
           </td>
         
-          <td><a href="#!" @click="add" class="bg-green-500"><i class="material-icons">add</i></a></td>
+          <td><a href="#!" @click="addStudent" class="bg-green-500"><i class="material-icons">add</i></a></td>
         </tr>
       </tbody>
     </table>
@@ -128,4 +128,5 @@ const columns = ['Index','Id','First Name','Second Name','Actions '];
         </tr>
       </tbody>
     </table> -->
+</div>
 </template>

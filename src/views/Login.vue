@@ -17,7 +17,7 @@ const handleSubmit = async () => {
     };
 
     const data = await fetch(URL, requestOptions)
-        .then(response => response.json())
+        .then(res => res.json())
         .then(data => { 
             if (data.message) err.value = data.message
             if (data.token) Cookies.set('jwt',data.token);
