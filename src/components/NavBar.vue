@@ -6,7 +6,7 @@ import { GlobalsString } from 'csstype';
 const navigation = [
   { name: 'Login', href: '/'},
   { name: 'Signin', href: '/signin' },
-  { name: 'Teachers', href: '/teachers' },
+  { name: 'Students', href: '/students' },
 ]
 </script>
 
@@ -76,7 +76,7 @@ const navigation = [
 
 <style>
 .active {
-  background-color: rgb(62, 82, 196) !important;
+  background-color: rgb(24, 47, 176) !important;
 }
 
 

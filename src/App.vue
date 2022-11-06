@@ -3,7 +3,7 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import HelloWorld from './components/HelloWorld.vue';
 import Form from './components/Form.vue';
-import TeacherList from './views/TeacherList.vue';
+import TeacherList from './views/Students.vue';
 import NavBar from './components/NavBar.vue';
 import SignIn from './views/SignIn.vue';
 
