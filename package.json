@@ -7,9 +7,14 @@
     "preserve": "vite build"
   },
   "dependencies": {
-    "vue": "^3.2.37"
+    "@headlessui/vue": "^1.7.4",
+    "@heroicons/vue": "^2.0.13",
+    "js-cookie": "^3.0.1",
+    "vue": "^3.2.37",
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.2",
     "@typescript-eslint/eslint-plugin": "^5.35.1",
     "@vitejs/plugin-vue": "^3.2.0",
     "autoprefixer": "^10.4.13",
@@ -24,6 +29,7 @@
     "stylelint": "^14.11.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recommended-vue": "^1.4.0",
+    "tailwindcss": "^3.2.2",
     "typescript": "~4.7.0",
     "vite": "^3.2.0",
     "vue-tsc": "^1.0.9"

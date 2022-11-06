@@ -4,21 +4,21 @@
 import HelloWorld from './components/HelloWorld.vue';
 import Form from './components/Form.vue';
 import LoginForm from './components/LoginForm.vue';
+import TeacherList from './components/TeacherList.vue';
+import NavBar from './components/NavBar.vue';
+import SignIn from './components/SignIn.vue';
+
 </script>
 
 <template>
-  <div>
-    <h1 class="bg-rose-500">HelloWorld</h1>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue - Hola" />
+  <NavBar/>
+  <SignIn/> 
+  <router-link to="/">Go to Home</router-link>
   <Form />
   <LoginForm />
+  <Suspense>
+    <TeacherList /> 
+  </Suspense>
 </template>
 
 <style scoped>
