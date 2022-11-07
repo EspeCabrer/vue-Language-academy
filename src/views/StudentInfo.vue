@@ -12,11 +12,11 @@ interface Course {
 let allCourses = ref()
 const columns: String[] = ['Index','Id','Name'];
 let selectedCourse = ref({name: 'Select course', id: 0})
-let showDropdown = ref<boolean>(false)
-let student = ref();
-let studentId = Number(window.location.pathname.split("/")[2]);
+let showDropdown:Ref<boolean> = ref(false)
+let student:Ref<any> = ref();
+let studentId: number = Number(window.location.pathname.split("/")[2]);
 
-const getStudent = async() => {
+const getStudent = async(): Promise<void>  => {
 
     const URL: RequestInfo = `http://localhost:3000/student/`
     
@@ -27,11 +27,11 @@ const getStudent = async() => {
 
     await fetch(`${URL}${studentId}`,
         requestOptions)
-        .then((r) => r.json())
+        .then((res) => res.json())
         .then(data => {
             student.value = data
         })
-        .catch((e) => console.log('error',e));
+        .catch((error) => console.log(error));
 };
 
 const getAllCourses = async (): Promise<void> => {
@@ -44,14 +44,14 @@ const getAllCourses = async (): Promise<void> => {
     };
 
     await fetch(URL, requestOptions)
-        .then((r) => r.json())
+        .then((res) => res.json())
         .then(data => {
             allCourses.value = data
         })
-        .catch((e) => console.log('error',e));
+        .catch((error) => console.error(error));
 };
 
-const addCourse = async () => {
+const addCourse = async (): Promise<void>  => {
     const URL: RequestInfo = `http://localhost:3000/student/add-course`
 
     const requestOptions: RequestInit = {
@@ -71,11 +71,10 @@ const addCourse = async () => {
         .catch((e) => console.log('error',e));
     }
 
-const selectCourse = (id: Number) => {
+const selectCourse = (id: Number):void => {
     if (allCourses)
     selectedCourse.value = allCourses.value.find((course: Course) => course.id === id);
     showDropdown.value = false;
-
 }
 getStudent();
 getAllCourses();

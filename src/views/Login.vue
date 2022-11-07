@@ -6,28 +6,26 @@ let email: Ref<string> = ref('');
 let password: Ref<string> = ref('')
 let err: Ref<null | string> = ref(null);
 
-const handleSubmit = async () => {
+const handleSubmit = async (): Promise<void>  => {
 
-    const URL = `http://localhost:3000/auth/login`;
+    const URL: RequestInfo = `http://localhost:3000/auth/login`;
 
-    const requestOptions = {
+    const requestOptions: RequestInit = {
     method: "POST",
-      headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email: email.value, password: password.value})
     };
 
-    const data = await fetch(URL, requestOptions)
+    await fetch(URL, requestOptions)
         .then(res => res.json())
         .then(data => { 
             if (data.message) err.value = data.message
             if (data.token) Cookies.set('jwt',data.token);
         })
-        .catch(error => console.error("NOOOO", error))  
-
+        .catch(error => console.error( error ))  
 }
 
 </script>
-
 <template>
   <div class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-slate-600 rounded-md">
     <div class="w-full max-w-md space-y-8">
@@ -47,8 +45,6 @@ const handleSubmit = async () => {
             <input id="password" name="password" type="password" v-model="password" autocomplete="current-password" required="true" class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Password" />
           </div>
         </div>
-
-
         <div>
           <button type="submit" class="group relative flex w-full justify-center rounded-md border border-transparent 
           bg-slate-200 py-2 px-4 text-sm font-medium text-slate-700 hover:bg-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-200 focus:ring-offset-2">

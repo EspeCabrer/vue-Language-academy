@@ -6,24 +6,22 @@ let email: Ref<string> = ref('');
 let password: Ref<string> = ref('')
 let err: Ref<null | string> = ref(null);
 
-const handleSubmit = async () => {
+const handleSubmit = async (): Promise<void>  => {
+    const URL: RequestInfo = `http://localhost:3000/auth/signin`;
 
-    const URL = `http://localhost:3000/auth/signin`;
-
-    const requestOptions = {
-    method: "POST",
+    const requestOptions: RequestInit = {
+      method: "POST",
       headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email: email.value, password: password.value})
+      body: JSON.stringify({ email: email.value, password: password.value})
     };
 
-    const data = await fetch(URL, requestOptions)
+    await fetch(URL, requestOptions)
         .then(response => response.json())
         .then(data => { 
             if (data.message) err.value = data.message
             if (data.token) Cookies.set('jwt',data.token);
         })
-        .catch(error => console.error("NOOOO", error))  
-
+        .catch(error => console.error(error))
 }
 
 </script>
