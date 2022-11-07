@@ -44,6 +44,8 @@ Se puede ver a qué curso está inscrito un estudiante haciendo click en la row 
 Quedan pendiente de implementación las vistas de "Courses" y "Teachers" desde dónde se podrán añadir, editar y borrar cursos y profesores, 
 también permitirá vincluar un curso con un profesor específico.
 
+A mejorar algunos detalles cómo el feedback al cliente de las peticiones (por ejemplo, authentificación hecha/fallida).
+
 
 
 
