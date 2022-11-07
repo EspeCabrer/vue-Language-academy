@@ -34,7 +34,10 @@
         const URL = `http://localhost:3000/student`;
         const requestOptions = {
             method: "POST",
-            headers: { 'Authorization': 'Bearer ' + Cookies.get('jwt')},
+            headers: {
+                'Authorization': 'Bearer ' + Cookies.get('jwt'),
+                "Content-Type": "application/json"
+            },
             body: JSON.stringify({
                 firstName: firstNameNewStudent.value,
                 lastName: lastNameNewStudent.value
@@ -53,7 +56,9 @@
         const URL = `http://localhost:3000/student`;
         const requestOptions = {
             method: "PUT",
-             headers: { 'Authorization': 'Bearer ' + Cookies.get('jwt')},
+            headers: {
+                'Authorization': 'Bearer ' + Cookies.get('jwt'),
+                "Content-Type": "application/json"},
             body: JSON.stringify({
                 firstName: editFirstName.value,
                 lastName: editLastName.value
