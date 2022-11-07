@@ -1,19 +1,47 @@
-# Vue 3 + TypeScript + Vite
+# Academy language frontend
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Proyecto de frontend dónde se desarrolla una webapp simple de gestión de academia de idiomas.
 
-## Recommended IDE Setup
+## Herramientas utilizadas destacadas
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+- Vite, Typescript y Vue3.
+- Tailwind para el manejo de estilos.
+- Vue Router
 
-## Type Support For `.vue` Imports in TS
+## INICIALIZACIÓN
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's Take Over mode by following these steps:
+Inicializa la aplicación con el comando: npm run dev
 
-1. Run `Extensions: Show Built-in Extensions` from VS Code's command palette, look for `TypeScript and JavaScript Language Features`, then right click and select `Disable (Workspace)`. By default, Take Over mode will enable itself if the default TypeScript extension is disabled.
-2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
+* Asegurarse de tener el servidor del backend encendido, este proyecto apunta a "http://localhost:3000".
 
-You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
 
-npm run dev
+## Descripción
+
+Para acceder al contenido se necesita autentificación mediante registro o login. 
+Si se intenta acceder a otra ruta desde la barra de navegación sin autentificación, el usuario es redireccionado a la página de login.
+
+![Alt text](./docs/login.png) "Login")
+
+Si no se tiene un usuario se puede crear uno desde la página de Signin
+
+![Alt text](./docs/signin.png) "Signin")
+
+Una vez hecha la autentificación se puede acceder a la vista de "Students" dónde se pueden ver, añadir, editar y borrar los estudiantes.
+
+![Alt text](./docs/studentList1.png) "StudentList")
+
+![Alt text](./docs/updateStudent.png) "UpdateStudent")
+
+Se puede ver a qué curso está inscrito un estudiante haciendo click en la row de la tabla, desde esta nueva vista también se puede añadir una suscripción a algún curso existente.
+
+![Alt text](./docs/studentCourses.png) "StudentCourses")
+
+## Pendiente implementación
+
+Quedan pendiente de implementación las vistas de "Courses" y "Teachers" desde dónde se podrán añadir, editar y borrar cursos y profesores, 
+también permitirá vincluar un curso con un profesor específico.
+
+
+
+
 
