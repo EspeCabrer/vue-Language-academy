@@ -15,14 +15,21 @@ const handleSubmit = async (): Promise<void>  => {
       body: JSON.stringify({ email: email.value, password: password.value})
     };
 
-    await fetch(URL, requestOptions)
-        .then(response => response.json())
-        .then(data => { 
-            if (data.message) err.value = data.message
-            if (data.token) Cookies.set('jwt',data.token);
-        })
+  await fetch(URL,requestOptions)
+    .then(response => response.json())
+    .then(data => {
+      if (data.message) err.value = data.message
+      if (data.token) {
+        Cookies.set('jwt',data.token)
+        redirectToListStudentPage()
+      }
+    })
         .catch(error => console.error(error))
 }
+
+ const redirectToListStudentPage = ():void => {
+    window.location.pathname = "/students"
+};
 
 </script>
 

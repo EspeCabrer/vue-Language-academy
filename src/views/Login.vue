@@ -6,6 +6,7 @@ let email: Ref<string> = ref('');
 let password: Ref<string> = ref('')
 let err: Ref<null | string> = ref(null);
 
+
 const handleSubmit = async (): Promise<void>  => {
 
     const URL: RequestInfo = `http://localhost:3000/auth/login`;
@@ -20,10 +21,19 @@ const handleSubmit = async (): Promise<void>  => {
         .then(res => res.json())
         .then(data => { 
             if (data.message) err.value = data.message
-            if (data.token) Cookies.set('jwt',data.token);
+          if (data.token) {
+            Cookies.set('jwt',data.token);
+            redirectToListStudentPage();
+          }
         })
         .catch(error => console.error( error ))  
 }
+
+const redirectToListStudentPage = (): void => {
+  console.log('holi')
+    window.location.pathname = "/students"
+};
+
 
 </script>
 <template>
@@ -51,7 +61,7 @@ const handleSubmit = async (): Promise<void>  => {
             <span class="absolute inset-y-0 left-0 flex items-center pl-3">
               <LockClosedIcon class="h-5 w-5 text-slate-700 group-hover:text-slate-900" aria-hidden="true" />
             </span>
-            Sign in
+            Log in
           </button>
           <p>{{ err }}</p>
         </div>
