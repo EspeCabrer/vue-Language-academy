@@ -30,7 +30,6 @@ const handleSubmit = async (): Promise<void>  => {
 }
 
 const redirectToListStudentPage = (): void => {
-  console.log('holi')
     window.location.pathname = "/students"
 };
 
